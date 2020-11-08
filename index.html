@@ -4,10 +4,6 @@
     <meta charset="utf-8">
     <title>Interop Testing Results</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-<!--    <link rel="preload" as="fetch" crossorigin href="/lib/tpl/explain-test.liquid">-->
-<!--    <link rel="preload" as="fetch" crossorigin href="/lib/tpl/checks.liquid">-->
-<!--    <link rel="preload" as="fetch" crossorigin href="/lib/tpl/header-list.liquid">-->
-<!--    <link rel="preload" as="fetch" crossorigin href="/lib/tpl/header-magic.liquid">-->
     <script type="module">
       import index from './results/index.mjs'
       import * as summary from './lib/summary.mjs'
@@ -53,15 +49,12 @@
     <p class="warning noFrame">These results are used for reporting interop testing only. The reported results may be incorrect.</p>
 
     <p id="key">
-      <span class="key-item"><span class="fa" data-kind="pass"></span>passed &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="optional_fail"></span>optional test failed &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="fail"></span>conformance test failed &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="yes"></span> / <span class="fa" data-kind="no"></span>behaviour check results &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="harness_fail"></span>test harness failure &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="setup_fail"></span>test failed during setup &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="retry"></span>cache retries a request &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="dependency_fail"></span>test dependency failed &nbsp;</span>
-      <span class="key-item"><span class="fa" data-kind="untested"></span>not tested</span>
+      <span class="key-item"><span class="fa" data-kind="pass"></span>Requirement passed &nbsp;</span>
+      <span class="key-item"><span class="fa" data-kind="should_fail"></span>SHOULD requirement failed &nbsp;</span>
+      <span class="key-item"><span class="fa" data-kind="must_fail"></span>MUST requirement failed &nbsp;</span>
+      <span class="key-item"><span class="fa" data-kind="yes"></span>Feature supported &nbsp;</span>
+      <span class="key-item"><span class="fa" data-kind="no"></span>Feature not supported &nbsp;</span>
+      <span class="key-item"><span class="fa" data-kind="untested"></span>Not tested</span>
     </p>
 
     <ul id="ToC" class="noFrame">

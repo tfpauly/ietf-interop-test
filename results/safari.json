@@ -1,5 +1,5 @@
 {
-  "freshness-max-age": true,
+  "freshness-max-age": false,
   "freshness-max-age-0": true,
   "freshness-max-age-0-expires": true,
   "freshness-max-age-100a": [

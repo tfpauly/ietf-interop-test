@@ -10,7 +10,7 @@ export default
     {
       name: 'Does HTTP cache avoid reusing a response without explict freshness information or a validator (doing so messes up the tests)?',
       id: 'freshness-none',
-      kind: 'check',
+      kind: 'supported',
       spec_anchors: ['cache-response-directive.max-age'],
       requests: [
         {
@@ -23,9 +23,9 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with positive `Cache-Control: max-age`',
+      name: 'An should HTTP cache reuses a response with positive `Cache-Control: max-age`',
       id: 'freshness-max-age',
-      kind: 'optimal',
+      kind: 'must',
       depends_on: ['freshness-none'],
       spec_anchors: ['cache-response-directive.max-age'],
       requests: [
@@ -60,9 +60,9 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with `Cache-Control: max-age: 2147483647`',
+      name: 'An should HTTP cache reuses a response with `Cache-Control: max-age: 2147483647`',
       id: 'freshness-max-age-max-minus-1',
-      kind: 'optimal',
+      kind: 'should',
       depends_on: ['freshness-none'],
       spec_anchors: ['cache-response-directive.max-age'],
       requests: [
@@ -79,9 +79,9 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with `Cache-Control: max-age: 2147483648`',
+      name: 'An should HTTP cache reuses a response with `Cache-Control: max-age: 2147483648`',
       id: 'freshness-max-age-max',
-      kind: 'optimal',
+      kind: 'should',
       depends_on: ['freshness-none'],
       spec_anchors: ['cache-response-directive.max-age'],
       requests: [
@@ -98,9 +98,9 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with `Cache-Control: max-age: 2147483649`',
+      name: 'An should HTTP cache reuses a response with `Cache-Control: max-age: 2147483649`',
       id: 'freshness-max-age-max-plus-1',
-      kind: 'optimal',
+      kind: 'should',
       depends_on: ['freshness-none'],
       spec_anchors: ['cache-response-directive.max-age'],
       requests: [
@@ -117,9 +117,9 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with `Cache-Control: max-age: 99999999999`',
+      name: 'An should HTTP cache reuses a response with `Cache-Control: max-age: 99999999999`',
       id: 'freshness-max-age-max-plus',
-      kind: 'optimal',
+      kind: 'should',
       depends_on: ['freshness-none'],
       spec_anchors: ['cache-response-directive.max-age'],
       requests: [
@@ -160,7 +160,7 @@ export default
       id: 'freshness-max-age-date',
       depends_on: ['freshness-max-age'],
       spec_anchors: ['cache-response-directive.max-age'],
-      kind: 'check',
+      kind: 'supported',
       requests: [
         {
           response_headers: [
@@ -176,10 +176,10 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with positive `Cache-Control: max-age` and a past `Expires`',
+      name: 'An should HTTP cache reuses a response with positive `Cache-Control: max-age` and a past `Expires`',
       id: 'freshness-max-age-expires',
       depends_on: ['freshness-max-age'],
-      kind: 'optimal',
+      kind: 'should',
       spec_anchors: ['cache-response-directive.max-age', 'field.expires'],
       requests: [
         {
@@ -197,10 +197,10 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with positive `Cache-Control: max-age` and an invalid `Expires`',
+      name: 'An should HTTP cache reuses a response with positive `Cache-Control: max-age` and an invalid `Expires`',
       id: 'freshness-max-age-expires-invalid',
       depends_on: ['freshness-max-age'],
-      kind: 'optimal',
+      kind: 'should',
       spec_anchors: ['cache-response-directive.max-age', 'field.expires'],
       requests: [
         {
@@ -238,9 +238,9 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with positive `Cache-Control: max-age` and a CC extension present',
+      name: 'An should HTTP cache reuses a response with positive `Cache-Control: max-age` and a CC extension present',
       id: 'freshness-max-age-extension',
-      kind: 'optimal',
+      kind: 'should',
       depends_on: ['freshness-max-age'],
       spec_anchors: ['cache.control.extensions'],
       requests: [
@@ -257,9 +257,9 @@ export default
       ]
     },
     {
-      name: 'An optimal HTTP cache reuses a response with positive `Cache-Control: MaX-AgE`',
+      name: 'An should HTTP cache reuses a response with positive `Cache-Control: MaX-AgE`',
       id: 'freshness-max-age-case-insenstive',
-      kind: 'optimal',
+      kind: 'should',
       depends_on: ['freshness-max-age'],
       spec_anchors: ['cache-response-directive.max-age'],
       requests: [
@@ -333,7 +333,7 @@ export default
       browser_only: true
     },
     {
-      name: 'An optimal shared HTTP cache reuses a response with positive `Cache-Control: s-maxage`',
+      name: 'An should shared HTTP cache reuses a response with positive `Cache-Control: s-maxage`',
       id: 'freshness-s-maxage-shared',
       depends_on: ['freshness-none'],
       spec_anchors: ['cache-response-directive.s-maxage'],
@@ -410,10 +410,10 @@ export default
       browser_skip: true
     },
     {
-      name: 'An optimal shared HTTP cache prefers long `Cache-Control: s-maxage` over a shorter `Cache-Control: max-age`',
+      name: 'An should shared HTTP cache prefers long `Cache-Control: s-maxage` over a shorter `Cache-Control: max-age`',
       id: 'freshness-max-age-s-maxage-shared-shorter',
       depends_on: ['freshness-s-maxage-shared'],
-      kind: 'optimal',
+      kind: 'should',
       spec_anchors: ['cache-response-directive.max-age', 'cache-response-directive.s-maxage'],
       requests: [
         {
@@ -430,10 +430,10 @@ export default
       browser_skip: true
     },
     {
-      name: 'An optimal shared HTTP cache prefers long `Cache-Control: s-maxage` over `Cache-Control: max-age=0`, even with a past `Expires`',
+      name: 'An should shared HTTP cache prefers long `Cache-Control: s-maxage` over `Cache-Control: max-age=0`, even with a past `Expires`',
       id: 'freshness-max-age-s-maxage-shared-shorter-expires',
       depends_on: ['freshness-s-maxage-shared'],
-      kind: 'optimal',
+      kind: 'should',
       spec_anchors: ['cache-response-directive.max-age', 'cache-response-directive.s-maxage'],
       requests: [
         {
