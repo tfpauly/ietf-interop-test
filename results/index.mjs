@@ -1,15 +1,11 @@
 
 export default [
   {
-    file: 'chrome.json',
-    name: 'Chrome',
-    type: 'browser',
-    version: '79.0.3945.130'
+    file: 'nwfw.json',
+    name: 'Network.framework',
   },
   {
-    file: 'safari.json',
-    name: 'Safari',
-    type: 'browser',
-    version: '14.0 (15610.1.28.1.9, 15610)'
+    file: 'quiche.json',
+    name: 'Quiche',
   }
 ]

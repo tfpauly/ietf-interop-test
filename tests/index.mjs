@@ -1,3 +1,3 @@
-import ccFreshness from './cc-freshness.mjs'
+import connectUDP from './connect-udp.mjs'
 
-export default [ccFreshness]
+export default [connectUDP]
